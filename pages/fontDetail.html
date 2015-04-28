@@ -1,0 +1,88 @@
+﻿<style>
+    @font-face {
+        font-family: "{{ font.Name }}";
+        src: url("/handlers/file.ashx?f={{ font.path }}");
+    }
+
+    .font-face {
+        font-family: "{{ font.Name }}";
+    }
+</style>
+
+<h1>Font Detail</h1>
+<hr />
+<h2 ng-if="!font.FontImagePath">{{ font.Name }}</h2>
+<div class="row" ng-if="font.FontImagePath">
+    <div class="col-md-12">
+        <img src="/handlers/file.ashx?f={{ font.FontImagePath }}" alt="{{ font.Name }}" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 font-info">
+        <h3>Information</h3>
+        <dl>
+            <dt>
+                File Name
+            </dt>
+            <dd>
+                {{ font.FileName }}
+            </dd>
+            <dt>
+                Version
+            </dt>
+            <dd>
+                {{ font.VersionString }}
+            </dd>
+            <dt>
+                Copyright
+            </dt>
+            <dd>
+                {{ font.Copyright }}
+            </dd>
+            <dt>
+                Trademark
+            </dt>
+            <dd>
+                {{ font.Trademark }}
+            </dd>
+            <dt>
+                Manufacturer
+            </dt>
+            <dd>
+                {{ font.ManufacturerName }}
+            </dd>
+            <dt ng-show="font.DesignerUrl">
+                Designer
+            </dt>
+            <dd ng-show="font.DesignerUrl">
+                {{ font.DesignerUrl }}
+            </dd>
+        </dl>
+        <button class="btn btn-primary" ng-click="font.download()">Download</button>
+        <button class="btn btn-success" ng-click="font.createImage()" ng-show="!font.HasFontImage">Create Image</button>
+    </div>
+    <div class="col-md-9">
+        <h3>Samples</h3>
+        <form class="form row" name="font.sampleForm" novalidate>
+            <div class="col-md-10 form-group">
+                <input type="text"
+                       name="sampleText"
+                       class="form-control"
+                       ng-model="font.sampleText"
+                       ng-model-options="{ updateOn: 'default change', debounce: { 'default': 1000, 'change': 0 } }" />
+            </div>
+            <div class="col-md-2 form-group" ng-show="font.sampleForm.sampleText.$dirty">
+                <button type="button" class="btn btn-default" ng-click="font.reset()">Reset</button>
+            </div>
+        </form>
+        <hr />
+        <div ng-repeat="size in font.sizes" class="row">
+            <div class="col-md-1">
+                {{size}}
+            </div>
+            <div class="col-md-11 font-face" style="font-size: {{size}}px">
+                {{ font.sampleText }}
+            </div>
+        </div>
+    </div>
+</div>

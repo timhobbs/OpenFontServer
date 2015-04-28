@@ -1,0 +1,22 @@
+﻿.font-info {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+#loading-bar .bar {
+    background: #93c54b;
+}
+
+#loading-bar .peg {
+    -moz-box-shadow: #93c54b 1px 0 6px 1px;
+    -ms-box-shadow: #93c54b 1px 0 6px 1px;
+    -webkit-box-shadow: #93c54b 1px 0 6px 1px;
+    box-shadow: #93c54b 1px 0 6px 1px;
+}
+
+#loading-bar-spinner .spinner-icon {
+    border-top-color: #93c54b;
+    border-left-color: #93c54b;
+}

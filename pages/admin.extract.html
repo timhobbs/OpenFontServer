@@ -1,0 +1,29 @@
+﻿<h2>Extract Fonts</h2>
+
+<div class="alert alert-{{ extract.alertType }}" ng-if="extract.alertType">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="extract.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ extract.alertMessage }}
+</div>
+<form name="extractFontForm" novalidate ng-submit="extract.extractFonts()">
+    <div class="form-group">
+        <label>Extract Path</label>
+        <input type="text" class="form-control" ng-model="extract.form.extractPath" placeholder="path/to/archives" />
+    </div>
+    <div class="form-group">
+        <label>Destination Path</label>
+        <input type="text" class="form-control" ng-model="extract.form.destinationPath" placeholder="path/to/destination" />
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" ng-model="extract.form.moveArchives"  />
+            Move archives after processing?
+        </label>
+    </div>
+    <div class="form-group" ng-show="extract.form.moveArchives">
+        <label>Processed Path</label>
+        <input type="text" class="form-control" ng-model="extract.form.processedPath" placeholder="path/to/processed" />
+    </div>
+    <button type="submit" class="btn btn-primary">Extract Fonts</button>
+</form>

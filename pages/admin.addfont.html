@@ -1,0 +1,12 @@
+﻿<h2>Add Fonts</h2>
+
+<div class="alert alert-{{ add.alertType }}" ng-if="add.alertType">
+    {{ add.alertMessage }}
+</div>
+<form name="addFontForm" novalidate ng-submit="add.addFonts(add.form.fontPath)">
+    <div class="form-group">
+        <label>Font Path</label>
+        <input type="text" class="form-control" ng-model="add.form.fontPath" placeholder="path/to/fonts" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Fonts</button>
+</form>
