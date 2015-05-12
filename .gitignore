@@ -17,6 +17,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# VS
+bin
+obj
+*.suo
+*.user
+
 # =========================
 # Operating System Files
 # =========================
@@ -41,3 +47,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+Scripts/app.min.js
+Scripts/vendor.min.js
+Scripts/build/
+Scripts/vendor/
+Content/vendor/
+Properties/PublishProfiles/Winhost.pubxml
